@@ -13,7 +13,7 @@ public class Ndejiecheng {
         int rs = 0;
         for (int i =n;i >= 5;i--){
             int tmp = i;
-            while(tmp%5 == 0){
+            while(tmp % 5 == 0){
                 rs++;
                 tmp = tmp/5;
             }

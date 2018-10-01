@@ -1,8 +1,14 @@
 package arthmetic;
 
+import sun.reflect.generics.tree.Tree;
+
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class GetTreeHight {
+
     /**
      * 题目描述
      * 现在有一棵合法的二叉树，树的节点都是用数字表示，现在给定这棵树上所有的父子关系，求这棵树的高度
@@ -16,4 +22,53 @@ public class GetTreeHight {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
     }
+    /**
+     * 题目描述
+     * 输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
+     * */
+    class TreeNode {
+        int val = 0;
+        TreeNode left = null;
+        TreeNode right = null;
+
+        public TreeNode(int val) {
+            this.val = val;
+
+        }
+    }
+    //递归
+    public  int TreeDepth(TreeNode root) {
+        if (root==null){
+            return 0;
+        }
+        int left = TreeDepth(root.left);
+        int right = TreeDepth(root.right);
+        return Math.max(left,right) + 1;
+    }
+    //非递归
+    public  int TreeDepth2(TreeNode root) {
+        if (root==null){
+            return 0;
+        }
+        Queue<TreeNode> stack = new LinkedList<TreeNode>();
+        stack.add(root);
+        int depth = 0,count = 0,stacknum = 1;
+        while(stack.size()!=0){
+            count++;
+            root = stack.poll();
+            if (root.left!=null){
+                stack.add(root.left);
+            }
+            if (root.right!=null){
+                stack.add(root.right);
+            }
+            if (count == stacknum){
+                stacknum = stack.size();
+                count = 0;
+                depth++;
+            }
+        }
+        return depth;
+    }
+
 }
