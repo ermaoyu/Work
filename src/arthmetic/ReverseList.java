@@ -39,4 +39,15 @@ public class ReverseList {
         //直接输出pre就是我们想要得到的反转后的链表
        return pre;
     }
+    public static ListNode reverseList2(ListNode head) {
+            ListNode pr1 = null;
+            ListNode pr2 = null;
+            while (head != null){
+                pr1 = head.next;
+                head.next = pr2;
+                pr2 = head;
+                head = pr1;
+            }
+            return pr2;
+     }
 }

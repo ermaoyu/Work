@@ -14,8 +14,25 @@ public class Convert {
             this.val = val;
         }
     }
-
-//    public TreeNode convert(TreeNode pRootOfTree) {
-//
-//    }
+    private TreeNode pr1 = null;
+    private TreeNode pr2 = null;
+    public TreeNode convert(TreeNode pRootOfTree) {
+            visit(pRootOfTree);
+            return pr2;
+   }
+   public void visit(TreeNode pRootOfTree){
+       if (pRootOfTree == null){
+           return ;
+       }
+       convert(pRootOfTree.left);
+       if (pr1 == null){
+           pr1 = pRootOfTree;
+           pr2 = pRootOfTree;
+       }else {
+           pr1.right = pRootOfTree;
+           pRootOfTree.left = pr1;
+           pr1 = pRootOfTree;
+       }
+       convert(pRootOfTree.right);
+   }
 }
