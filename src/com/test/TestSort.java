@@ -66,7 +66,7 @@ public class TestSort {
 //        for (int i = 0;i<a.length;i++){
 //            System.out.print(a[i]);
 //        }
-//        TestSort.selectSort(a);
+//        TestSort.Code_02_selectSort(a);
 //        for (int i = 0;i<a.length;i++){
 //            System.out.print(a[i]+" ");
 //        }
