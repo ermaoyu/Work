@@ -26,6 +26,7 @@ public class Manacher {
         int max = Integer.MIN_VALUE;
         for(int i = 0;i != charArr.length;i++){
             pArr[i] = R > i ? Math.min(R - i,pArr[2*C - i]) : 1;
+            //最小的回文长度
             while(i + pArr[i] < charArr.length && i - pArr[i] > -1) {
                 if (charArr[i + pArr[i]] == charArr[i - pArr[i]]) {
                     pArr[i]++;
@@ -40,8 +41,6 @@ public class Manacher {
                 max = Math.max(max,pArr[i]);
         }
         return max - 1;
-
-
     }
 
 }
