@@ -3,7 +3,7 @@ package zuoshengsuanfa.jinjieban.class_1;
 /**
  *  毛毛雨  2018/10/15  最大回文O(n)
  * */
-public class Manacher {
+public class Code_04_Manacher {
 
     public static  char[]  manacherString(String str){
         char[] charArr = str.toCharArray();
