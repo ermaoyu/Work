@@ -21,7 +21,7 @@ public class ShuChuan {
             Collections.sort(list, new Comparator<Integer>() {//比较器
                 @Override
                 public int compare(Integer o1, Integer o2) {
-                    /**  compare:
+                    /**  compare:(按字典序排列,小的在前大的在后)
                      *   返回值<0   前面的<后面的,位置排前
                      *   返回值=0  前面的=后面的,位置不变
                      *   返回值>0  前面的>后面的,位置靠后
