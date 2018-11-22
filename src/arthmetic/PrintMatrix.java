@@ -9,44 +9,40 @@ public class PrintMatrix {
      * 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
      * */
     public ArrayList<Integer> printMatrix(int [][] matrix) {
-        int tL = 0;
-        int tH = 0;
-        int dL = matrix.length -1;
-        int dH = matrix[0].length-1;
+        int tR = 0;
+        int tC = 0;
+        int dR = matrix.length -1;//行
+        int dC = matrix[0].length-1;//列
         ArrayList<Integer> list = new ArrayList<>();
-        while(tL <= dL && tH <= dH){
-            list = getArray(matrix, tL, tH, dL, dH);
+        while(tR <= dR && tC <= dC){
+            getArray(matrix, tR++, tC++, dR--, dC--,list);
         }
         return list;
     }
-    public ArrayList<Integer> getArray(int [][] a,int tL,int tH,int dL,int dH){
-        ArrayList<Integer> list = new ArrayList<>();
-        if(dL == tL){
-            for (int i = tH;i<= dH;i++){
-                list.add(a[tL][i]);
-            }
-        } else if(dH == tH){
-            for (int i = tL;i<= dL;i++){
-                list.add(a[i][tH]);
-            }
-        }else {
-            int currH = tH;
-            int currL = tL;
-            while(currL != dL){
-                list.add(a[currL][tH]);
-                currL ++;
-            }
-            while(currH != dH){
-                list.add(a[dL][currH]);
-                currH ++;
-            } while(currL != tL){
-                list.add(a[currL][dH]);
-                currL --;
-            } while(currH != tH){
-                list.add(a[tL][currH]);
-                currL --;
-            }
-        }
-        return  list;
+    public void getArray(int [][] a,int tR,int tC,int dR,int dC,ArrayList<Integer> list){
+       if (tR == dR){//如果只有一行
+           for (int i = tC;i <= dC;i++){
+               list.add(a[tR][i]);
+           }
+       }else if (tC == dC){//只有一列
+           for (int i = tR; i <= dR; i++) {
+               list.add(a[i][tC]);
+           }
+       }else {
+           int curC = tC;
+           int curR = tR;
+           while(curC != dC){
+               list.add(a[tR][curC++]);
+           }
+           while(curR != dR){
+               list.add(a[curR++][dC]);
+           }
+           while(curC != tC){
+               list.add(a[dR][curC--]);
+           }
+           while(curR != tR){
+               list.add(a[curR--][tC]);
+           }
+       }
     }
 }

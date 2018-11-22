@@ -13,7 +13,24 @@ public class FindNumsAppearOnce {
         if(array == null && array.length == 0 ){
           return;
         }
-        Arrays.sort(array);
-
+        int num = 0;
+        for (int i = 0; i < array.length ; i++) {
+            num = (num ^ array[i]);//异或的结果是出现一次的两个数
+        }
+        int count = 0;//记录标志位
+        for (; count < array.length; count++) {
+            if ((num & (1<<count))!=0){//第一个为1的位置
+                break;
+            }
+        }
+        num1[0] = 0;
+        num2[0] = 0;
+        for (int i = 0;i < array.length;i++){
+            if ((array[i]&(1<<count))!=0){//标志位为1的一组
+                num1[0] ^=array[i];
+            }else {//标志位为0的一组
+                num2[0] ^=array[i];
+            }
+        }
     }
 }

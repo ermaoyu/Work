@@ -16,5 +16,6 @@ public class Code_01_数组中的两个数和为给定值 {
             }
             map.put(a[i],i);
         }
+        return new int[]{0};
     }
 }

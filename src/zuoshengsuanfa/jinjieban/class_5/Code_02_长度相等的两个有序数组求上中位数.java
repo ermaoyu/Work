@@ -7,12 +7,12 @@ public class Code_02_长度相等的两个有序数组求上中位数 {
             return -1;
         }
         int L1 = 0;
-        int R1 = a.length - 1;
+        int R1 = a.length ;
         int L2 = 0;
-        int R2 = b.length - 1;
+        int R2 = b.length ;
         while (L1 < R1) {
-            int mid1 = (L1 + R1) / 1;
-            int mid2 = (L2 + R2) / 1;
+            int mid1 = (L1 + R1) >> 1;
+            int mid2 = (L2 + R2) >> 1;
             if (a[mid1] == b[mid2]) {
                 return a[mid1];
             } else if (a[mid1] > b[mid2]) {
@@ -43,6 +43,27 @@ public class Code_02_长度相等的两个有序数组求上中位数 {
 
         }
             return -1;
+    }
+
+    public  static int getMid(int[] a,int[] b){
+        if (a == null || a.length == 0 || b == null || b.length == 0) {
+            return -1;
+        }
+        int L1 = 0;
+        int R1 = a.length - 1;
+        int L2 = 0;
+        int R2 = b.length - 1;
+        int mid1 = 0;
+        int mid2 = 0;
+        int index = 0;
+
+        return Math.min(a[L1], b[L2]);
+    }
+
+    public static void main(String[] args) {
+        int[] a = {1,6};
+        int[] b = {2,4};
+        System.out.println(getMidNum(a,b));
     }
 
 }

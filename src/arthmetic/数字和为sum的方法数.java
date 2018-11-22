@@ -7,6 +7,6 @@ package arthmetic;
 public class 数字和为sum的方法数 {
     public static int getSum(int[] a,int sum){
 
-
+    return -1;
     }
 }
