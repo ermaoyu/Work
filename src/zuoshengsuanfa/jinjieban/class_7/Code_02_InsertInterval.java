@@ -5,7 +5,9 @@ import java.util.List;
 
 /**
  *      毛毛雨     2018/11/6
- *
+ *      Given [1,2],[3,5],[6,7],[8,10],[12,16],
+ *      insert anmerge [4,9]
+ *      [1,2],[3,10],[12,16]
  * */
 public class Code_02_InsertInterval {
     public static class Interval{
