@@ -43,8 +43,44 @@ public class FindNumbersWithSum {
         return list;
     }
 
+    /***
+     *      双指针,额外空间复杂度O(1)
+     */
+     public static ArrayList<Integer> findNumbersWithSum1(int [] array, int sum) {
+        ArrayList<Integer> list = new ArrayList<>();
+        if (array == null || array.length == 0) {
+            return list;
+        }
+        int i = 0;
+        int j = array.length - 1;
+        int minNum1 = 0;
+        int minNum2 = 0;
+        int min = Integer.MAX_VALUE;
+        int temp = 0;
+        while(i < j) {
+            temp = array[i] + array[j];
+            if (temp < sum) i++;
+            else if (temp > sum) j--;
+            else {
+                int index = array[i] * array[j];
+                if (index < min) {
+                    min = index;
+                    minNum1 = array[i];
+                    minNum2 = array[j];
+                }
+                i++;
+            }
+        }
+        if (minNum1 == 0 && minNum2 == 0){
+            return list;
+        }
+        list.add(minNum1);
+        list.add(minNum2);
+        return list;
+     }
+
     public static void main(String[] args) {
-        int [] array = {1,2,4,7,11,16};
-        System.out.println(findNumbersWithSum(array,10).toString());
+        int [] array = {1,2,4,6,7,16};
+        System.out.println(findNumbersWithSum1(array,8).toString());
     }
 }

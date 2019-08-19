@@ -22,7 +22,7 @@ public class Code_02_汉诺塔数组求第几步 {
             if (res == -1){
                 return -1;
             }
-            return (1<<i)+res;//(n级罗汉塔移动完成需要2^n - 1步)
+            return (1<<i) + res;//(n级罗汉塔移动完成需要2^n - 1步)
         }
     }
 }
